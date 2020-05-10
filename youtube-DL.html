@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>YOUTUBE-DL-LINK-GENERATOR</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body 
+{font-size: 20px}
+
+textarea
+{height: 50px}
+
+.column
+{
+    float: left;
+    width: 50%;
+}
+
+#title{
+	background-color: red
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+               
+
+
+	<div class="row">
+
+	        <div class="col-md-8">
+                <input type="text" class="form-control" id="title" placeholder="ide másold a youtube címet" value="" onfocus="this.value=''"><br>
+                <br>
+                <br>
+                
+
+	        	<form name="formA">
+	        		<div class="column">
+                
+        <label><input type="radio" name="gender" value="1"> MP4-360p</label> <br>
+        <label><input type="radio" name="gender" value="2"> MP4-720p</label><br>
+        <label><input type="radio" name="gender" value="3"> MP4-1080p-video only </label><br><br>
+        <label><input type="radio" name="gender" value="4"> M4A-HANG </label><br>
+        <label><input type="radio" name="gender" value="5"> webm-360p </label><br><br>
+        <label><input type="radio" name="gender" value="6"> THUMBNAIL </label><br>
+        <label><input type="radio" name="gender" value="7"> DESCRIPTION </label><br><br>
+
+        </div>
+
+
+			<div class="column">
+
+
+        <label><input type="radio" name="gender" value="8"> THUMBNAIL+DESCRIPTION </label><br>
+        <label><input type="radio" name="gender" value="9"> MP4-360p+THUMBNAIL+DESCRIPTION </label><br>
+        <label><input type="radio" name="gender" value="10"> MP4-720p+THUMBNAIL+DESCRIPTION </label><br>
+        <label><input type="radio" name="gender" value="11"> HANG+THUMBNAIL+DESCRIPTION </label><br><br>
+        
+        <label><input type="radio" name="gender" value="12"> list-formats </label><br>
+        <label><input type="radio" name="gender" value="13"> update youtube-dl </label><br>
+
+
+        </div>
+
+    </form>
+
+
+        <input type="text" id="CUSTOMCODE" class="form-control form-control-lg center"  placeholder="EGYÉNI KÓD MEGADÁSA, majd ENTER">   
+        <button id="CUSTOMCODEbtn" style="display:none" onclick="CUSTOMCODEF()">Button</button>
+
+	        </div>
+
+	        <div class="col-md-4">
+
+	        	<h4>Click to select and copy</h4> <br>
+	        	<div contenteditable id="textarea2" onclick="copyDivToClipboard('textarea2')"> </div>
+
+	        <br>
+			<br>
+			
+			<br>
+
+	        	
+            <!-- <textarea id="textarea2"></textarea> -->
+
+<!-- <div id="a" onclick="copyDivToClipboard()"> Click to copy </div> -->
+
+
+	        </div>
+	</div>
+
+      
+
+<script>
+
+
+
+let copyDivToClipboard = (id) => {
+
+                    var range = document.createRange();
+                    range.selectNode(document.getElementById(id));
+                    window.getSelection().removeAllRanges(); // clear current selection
+                    window.getSelection().addRange(range); // to select text
+                    document.execCommand("copy");
+                    //window.getSelection().removeAllRanges();// to deselect
+                }
+
+
+
+	 // let update = () => {
+	 // 	document.getElementById("updatebtn").value = `sudo youtube-dl -U 
+  //       `;
+  //       var copyText = document.getElementById("updatebtn").value;
+  //       copyText.select();
+  //       document.execCommand("copy");
+
+  //   }
+
+    // let copy2 = () => {
+    //     var copyText = document.getElementById("textarea2").innerHTML;
+    //     copyText.select();
+    //     document.execCommand("copy");
+
+    // }
+
+let rsslink;
+
+	 var radios = document.forms["formA"].elements["gender"];
+
+    for (var i = 0, max = radios.length; i < max; i++) {
+        radios[i].onclick = function() {
+
+            rsslink = document.getElementById("title").value;
+
+            chooseShow(this.value);
+
+        }
+    }
+
+
+    let chooseShow = (show) => {
+
+    	switch (show) {
+
+
+            case "1":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 18 --output "~/Downloads/%(playlist_index)s-%(title)s.%(ext)s" -i ${rsslink}`);
+
+                break;
+            case "2":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 22 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+
+                break;
+            case "3":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 137 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+
+                break;
+            case "4":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 140 --output "~/Downloads/%(playlist_index)s-%(title)s.%(ext)s" -i ${rsslink}`);
+
+                break;
+            case "5":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 43 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+
+                break;
+            case "6":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl --output "~/Downloads/%(title)s.%(ext)s" --write-thumbnail --skip-download -i ${rsslink}`);
+
+                break;
+            case "7":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl --output "~/Downloads/%(title)s.%(ext)s" --write-description --skip-download -i ${rsslink}`);
+
+                break;
+            case "8":
+				
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl --output "~/Downloads/%(title)s" --write-description --write-thumbnail --skip-download -i ${rsslink}`);
+
+                break;
+            case "9":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 18 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
+
+                break;
+            case "10":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 22 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
+
+                break;
+            case "11":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 140 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
+
+                break;
+            case "12":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl --list-formats -i ${rsslink}`);
+
+                break;
+
+            case "13":
+
+                document.getElementById("textarea2").innerHTML = (`sudo youtube-dl -U`);
+
+                break;
+}
+}
+
+let CUSTOMCODEF = () => {
+    let { value } = document.querySelector('#CUSTOMCODE');
+    rsslink = document.getElementById("title").value;
+    document.getElementById("textarea2").innerHTML = (`youtube-dl -f ${value} --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+
+}
+
+ var input = document.getElementById("CUSTOMCODE");
+ 
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("CUSTOMCODEbtn").click();
+  
+        }
+    });
+
+
+
+
+</script>
+
+</body>
+
+</html>
