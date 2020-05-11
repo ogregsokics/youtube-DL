@@ -71,6 +71,8 @@ textarea
         
         <label><input type="radio" name="gender" value="12"> list-formats </label><br>
         <label><input type="radio" name="gender" value="13"> update youtube-dl </label><br>
+        <label><input type="radio" name="gender" value="14"> rm-cache-dir </label><br>
+   
 
 
         </div>
@@ -223,6 +225,14 @@ let rsslink;
                 document.getElementById("textarea2").innerHTML = (`sudo youtube-dl -U`);
 
                 break;
+
+                 case "14":
+
+                document.getElementById("textarea2").innerHTML = (`youtube-dl --rm-cache-dir`);
+
+                break;
+
+              
 }
 }
 
