@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>YOUTUBE-DL-LINK-GENERATOR</title>
+    <title>yt-dlp-LINK-GENERATOR</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -70,7 +70,7 @@ textarea
         <label><input type="radio" name="gender" value="11"> HANG+THUMBNAIL+DESCRIPTION </label><br><br>
         
         <label><input type="radio" name="gender" value="12"> list-formats </label><br>
-        <label><input type="radio" name="gender" value="13"> update youtube-dl </label><br>
+        <label><input type="radio" name="gender" value="13"> update yt-dlp </label><br>
         <label><input type="radio" name="gender" value="14"> rm-cache-dir </label><br>
    
 
@@ -123,7 +123,7 @@ let copyDivToClipboard = (id) => {
 
 
 	 // let update = () => {
-	 // 	document.getElementById("updatebtn").value = `sudo youtube-dl -U 
+	 // 	document.getElementById("updatebtn").value = `sudo yt-dlp -U 
   //       `;
   //       var copyText = document.getElementById("updatebtn").value;
   //       copyText.select();
@@ -160,75 +160,75 @@ let rsslink;
 
             case "1":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 18 --output "~/Downloads/%(playlist_index)s-%(title)s.%(ext)s" -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 18 --output "~/Downloads/%(playlist_index)s-%(title)s.%(ext)s" -i ${rsslink}`);
 
                 break;
             case "2":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 22 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 22 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
 
                 break;
             case "3":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 137 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 137 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
 
                 break;
             case "4":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 140 --output "~/Downloads/%(playlist_index)s-%(title)s.%(ext)s" -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 140 --output "~/Downloads/%(playlist_index)s-%(title)s.%(ext)s" -i ${rsslink}`);
 
                 break;
             case "5":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 43 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 43 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
 
                 break;
             case "6":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl --output "~/Downloads/%(title)s.%(ext)s" --write-thumbnail --skip-download -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp --output "~/Downloads/%(title)s.%(ext)s" --write-thumbnail --skip-download -i ${rsslink}`);
 
                 break;
             case "7":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl --output "~/Downloads/%(title)s.%(ext)s" --write-description --skip-download -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp --output "~/Downloads/%(title)s.%(ext)s" --write-description --skip-download -i ${rsslink}`);
 
                 break;
             case "8":
 				
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl --output "~/Downloads/%(title)s" --write-description --write-thumbnail --skip-download -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp --output "~/Downloads/%(title)s" --write-description --write-thumbnail --skip-download -i ${rsslink}`);
 
                 break;
             case "9":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 18 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 18 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
 
                 break;
             case "10":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 22 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 22 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
 
                 break;
             case "11":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl -f 140 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 140 --output "~/Downloads/%(title)s.%(ext)s" --write-description --write-thumbnail -i ${rsslink}`);
 
                 break;
             case "12":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl --list-formats -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp --list-formats -i ${rsslink}`);
 
                 break;
 
             case "13":
 
-                document.getElementById("textarea2").innerHTML = (`sudo youtube-dl -U`);
+                document.getElementById("textarea2").innerHTML = (`sudo yt-dlp -U`);
 
                 break;
 
                  case "14":
 
-                document.getElementById("textarea2").innerHTML = (`youtube-dl --rm-cache-dir`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp --rm-cache-dir`);
 
                 break;
 
@@ -239,7 +239,7 @@ let rsslink;
 let CUSTOMCODEF = () => {
     let { value } = document.querySelector('#CUSTOMCODE');
     rsslink = document.getElementById("title").value;
-    document.getElementById("textarea2").innerHTML = (`youtube-dl -f ${value} --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+    document.getElementById("textarea2").innerHTML = (`yt-dlp -f ${value} --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
 
 }
 
