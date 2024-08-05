@@ -55,7 +55,8 @@ textarea
         <label><input type="radio" name="gender" value="3"> MP4-1080p + AUDIO</label><br>
         <label><input type="radio" name="gender" value="3.2"> MP4-1080p (50fps) + AUDIO</label><br>
 
-        <label><input type="radio" name="gender" value="3.3"> WEBM 1080p + WEBM AUDIO</label><br>
+        <label><input type="radio" name="gender" value="3.3"> 
+        mp4 360p + AUDIO</label><br>
 
         <br>
         <label><input type="radio" name="gender" value="4"> M4A-HANG </label><br>
@@ -191,9 +192,9 @@ let rsslink;
 
             case "3.3":
 
-                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 248 --output "~/Downloads/video.%(ext)s" -i ${rsslink}
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 134 --output "~/Downloads/0.%(ext)s" -i ${rsslink}
 <br> <br> 
-                 yt-dlp -f 251 --output "~/Downloads/audio.%(ext)s" -i ${rsslink}`);
+                 yt-dlp -f 140 --output "~/Downloads/0.%(ext)s" -i ${rsslink}`);
 
                 break;
             case "4":
