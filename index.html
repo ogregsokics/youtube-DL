@@ -275,7 +275,7 @@ let rsslink;
 let CUSTOMCODEF = () => {
     let { value } = document.querySelector('#CUSTOMCODE');
     rsslink = document.getElementById("title").value;
-    document.getElementById("textarea2").innerHTML = (`yt-dlp -f ${value} --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+    document.getElementById("textarea2").innerHTML = (`yt-dlp -f ${value} --output "~/Downloads/0.%(ext)s" -i ${rsslink}`);
 
 }
 
