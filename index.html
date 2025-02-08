@@ -213,7 +213,7 @@ let rsslink;
 
             case "4":
 
-                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 140 --output "~/Downloads/%(playlist_index)s-%(title)s.%(ext)s" -i ${rsslink}`);
+                document.getElementById("textarea2").innerHTML = (`yt-dlp -f 140 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
 
                 break;
             case "5":
