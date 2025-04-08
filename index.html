@@ -54,7 +54,7 @@ textarea
         <label><input type="radio" name="gender" value="3.3"> MP4-360p(video_only) + AUDIO</label><br>       
         <label><input type="radio" name="gender" value="1"> MP4-360p</label> <br>
         <label><input type="radio" name="gender" value="2"> MP4-720p (136/298) (video_only) + AUDIO</label><br>
-        <label><input type="radio" name="gender" value="3"> MP4-1080p(video_only) + AUDIO</label><br>
+        <label><input type="radio" name="gender" value="3"> MP4-1080p(video_only) + AUDIO + DESCRIPTION</label><br>
         <label><input type="radio" name="gender" value="3.2"> MP4-1080p_50fps(video_only) + AUDIO</label><br>
 
         
@@ -183,7 +183,7 @@ let rsslink;
 
                 document.getElementById("textarea2").innerHTML = (`yt-dlp -f 137 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}
 <br> <br> 
-                 yt-dlp -f 140 --output "~/Downloads/%(title)s.%(ext)s" -i ${rsslink}`);
+                 yt-dlp -f 140 --output "~/Downloads/%(title)s.%(ext)s" --write-description -i ${rsslink}`);
 
                 break;
 
